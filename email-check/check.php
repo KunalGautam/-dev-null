@@ -9,7 +9,7 @@ function checkEmail($email) {
 	if (preg_match("/^[_A-z0-9-]+((\.|\+)[_A-z0-9-]+)*@[A-z0-9-]+(\.[A-z0-9-]+)*(\.[A-z]{2,4})$/", $email)) {
 
 		// gets domain name
-		list($username, $domain) = split('@', $email);
+		list($username, $domain) = explode('@', $email);
 		// checks for if MX records in the DNS
 		if (!checkdnsrr($domain, 'MX')) {
 			return false;
